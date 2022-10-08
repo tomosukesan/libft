@@ -1,12 +1,12 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-NAME = Libft
+NAME = libft.a
 OBJS = *.o
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o Libft $^
+	ar r $(NAME) $(OBJS)
 
 .c.o:
 	$(CC) $(CFLAGS) -c *.c

@@ -1,6 +1,9 @@
 # .gitignore
 .vscode/
+.DS_Store
 # test.c
 *.o
 a.out
-Libft
+libft.a
+tester/
+tmp/
