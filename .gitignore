@@ -1,0 +1,6 @@
+# .gitignore
+.vscode/
+# test.c
+*.o
+a.out
+Libft
