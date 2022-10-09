@@ -5,5 +5,5 @@
 *.o
 a.out
 libft.a
-tester/
-tmp/
+# tester/
+# tmp/

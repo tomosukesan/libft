@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 20:36:25 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/09 08:53:45 by ttachi           ###   ########.fr       */
+/*   Created: 2022/10/09 08:58:10 by ttachi            #+#    #+#             */
+/*   Updated: 2022/10/09 08:59:23 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	count;
-
-	count = 0;
-	while (count < n && (s1[count] != '\0' && s2[count] != '\0'))
-	{
-		if ((int)s1[count] < (int)s2[count])
-			return (-1);
-		else if ((int)s1[count] > (int)s2[count])
-			return (1);
-		count++;
-	}
-	return (0);
+	return ();
 }

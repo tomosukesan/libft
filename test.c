@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/08 21:03:55 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/09 08:57:10 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,18 @@ int	main(void)
 	printf("ft_strncmp[3]: %d\n", ft_strncmp("abahause", "ABAHAUSE", 8));
 	printf("ft_strncmp[4]: %d\n", ft_strncmp("abahause", "aBaHAUSE", 8));
 	printf("ft_strncmp[5]: %d\n", ft_strncmp("abahause", "", 8));
+	printf("ft_strncmp[6]: %d\n", ft_strncmp("abahause", "", 0));
+	printf("ft_memchr[1] : %s\n", (char *)ft_memchr("abahause", (int)'h', 9));
+	printf("ft_memchr[2] : %s\n", (char *)ft_memchr("abahause", (int)'h', 3));
+	printf("ft_memchr[3] : %s\n", (char *)ft_memchr("abahause", (int)'\0', 1));
+	printf("ft_memchr[4] : %s\n", (char *)ft_memchr("abahause", (int)'\0', 9));
+	printf("ft_memchr[5] : %s\n", (char *)ft_memchr("abahause", (int)'h', 0));
+	printf("ft_memcmp[1] : %d\n", ft_memcmp("abahause", "abahause", 9));
+	printf("ft_memcmp[2] : %d\n", ft_memcmp("abahause", "abahause", 200));
+	printf("ft_memcmp[3] : %d\n", ft_memcmp("abahause", "aBahaUse", 1));
+	printf("ft_memcmp[4] : %d\n", ft_memcmp("abahause", "ABAHAUSE", 9));
+	printf("ft_memcmp[5] : %d\n", ft_memcmp("abahause", "", 9));
+	printf("ft_memcmp[6] : %d\n", ft_memcmp("abahause", "aba", 0));
 	return (0);
 }
 
