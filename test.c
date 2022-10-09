@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/09 08:57:10 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/09 17:09:28 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	test_ascii(void);
 void	test_ft_memmove(void);
 void	test_ft_strlcpy(void);
 void	test_ft_strlcat(void);
+void	test_ft_strncmp(void);
+void	test_ft_memchr(void);
+void	test_ft_memcmp(void);
+void	test_ft_strnstr(void);
+void	test_ft_atoi(void);
 
 int	main(void)
 {
@@ -40,23 +45,11 @@ int	main(void)
 	test_ft_strlcat();
 	printf("ft_strchr:  %s\n", ft_strchr("42tokyo", (int)'o'));
 	printf("ft_strrchr: %s\n", ft_strrchr("42tokyo", (int)'o'));
-	printf("ft_strncmp[1]: %d\n", ft_strncmp("abahause", "abahause", 8));
-	printf("ft_strncmp[2]: %d\n", ft_strncmp("abahause", "abahause", 30));
-	printf("ft_strncmp[3]: %d\n", ft_strncmp("abahause", "ABAHAUSE", 8));
-	printf("ft_strncmp[4]: %d\n", ft_strncmp("abahause", "aBaHAUSE", 8));
-	printf("ft_strncmp[5]: %d\n", ft_strncmp("abahause", "", 8));
-	printf("ft_strncmp[6]: %d\n", ft_strncmp("abahause", "", 0));
-	printf("ft_memchr[1] : %s\n", (char *)ft_memchr("abahause", (int)'h', 9));
-	printf("ft_memchr[2] : %s\n", (char *)ft_memchr("abahause", (int)'h', 3));
-	printf("ft_memchr[3] : %s\n", (char *)ft_memchr("abahause", (int)'\0', 1));
-	printf("ft_memchr[4] : %s\n", (char *)ft_memchr("abahause", (int)'\0', 9));
-	printf("ft_memchr[5] : %s\n", (char *)ft_memchr("abahause", (int)'h', 0));
-	printf("ft_memcmp[1] : %d\n", ft_memcmp("abahause", "abahause", 9));
-	printf("ft_memcmp[2] : %d\n", ft_memcmp("abahause", "abahause", 200));
-	printf("ft_memcmp[3] : %d\n", ft_memcmp("abahause", "aBahaUse", 1));
-	printf("ft_memcmp[4] : %d\n", ft_memcmp("abahause", "ABAHAUSE", 9));
-	printf("ft_memcmp[5] : %d\n", ft_memcmp("abahause", "", 9));
-	printf("ft_memcmp[6] : %d\n", ft_memcmp("abahause", "aba", 0));
+	test_ft_strncmp();
+	test_ft_memchr();
+	test_ft_memcmp();
+	test_ft_strnstr();
+	test_ft_atoi();
 	return (0);
 }
 
@@ -94,7 +87,7 @@ void	test_ft_strlcpy(void)
 
 	write(1, "===ft_strlcpy===\n", 18);
 	write(1, src, 11);
-	src[5] = '\0';
+	// src[5] = '\0';
 	strlcpy(dest, src, 11);
 	puts("");
 	write(1, dest, 11);
@@ -105,7 +98,11 @@ void	test_ft_strlcpy(void)
 	// ft_strlcpy(NULL, src, 0); // expect: nothing
 	// ft_strlcpy(dest, NULL, 0); // expect: segmentation fault
 	// ft_strlcpy(NULL, NULL, 0); // expect: segmentation fault
-	puts("\n===============");
+	printf("\nft_strlcpy[1]:%zu\n", ft_strlcpy(dest, src, 10));
+	printf("ft_strlcpy[2]:%zu\n", ft_strlcpy(dest, src, 5));
+	printf("ft_strlcpy[3]:%zu\n", ft_strlcpy(dest, src, 0));
+	printf("ft_strlcpy[4]:%zu\n", ft_strlcpy(NULL, src, 0));
+	puts("===============");
 	// write(1, dest, 11);
 }
 
@@ -127,4 +124,65 @@ void	test_ft_strlcat(void)
 	// ft_strlcat(dest, NULL, 0);	// expect: segmentation fault
 	// ft_strlcpy(NULL, NULL, 0);	// expect: segmentation fault
 	printf("ft_strlcat後: %s\n", dest);
+}
+
+void	test_ft_strncmp(void)
+{
+	printf("ft_strncmp[1]: %d\n", ft_strncmp("abahause", "abahause", 8));
+	printf("ft_strncmp[2]: %d\n", ft_strncmp("abahause", "abahause", 30));
+	printf("ft_strncmp[3]: %d\n", ft_strncmp("abahause", "ABAHAUSE", 8));
+	printf("ft_strncmp[4]: %d\n", ft_strncmp("abahause", "aBaHAUSE", 8));
+	printf("ft_strncmp[5]: %d\n", ft_strncmp("abahause", "", 8));
+	printf("ft_strncmp[6]: %d\n", ft_strncmp("abahause", "", 0));
+	puts("===============");
+}
+
+void	test_ft_memchr(void)
+{
+	printf("ft_memchr[1] : %s\n", (char *)ft_memchr("abahause", (int)'h', 9));
+	printf("ft_memchr[2] : %s\n", (char *)ft_memchr("abahause", (int)'h', 3));
+	printf("ft_memchr[3] : %s\n", (char *)ft_memchr("abahause", (int)'\0', 1));
+	printf("ft_memchr[4] : %s\n", (char *)ft_memchr("abahause", (int)'\0', 9));
+	printf("ft_memchr[5] : %s\n", (char *)ft_memchr("abahause", (int)'h', 0));
+	puts("===============");
+}
+
+void	test_ft_memcmp(void)
+{
+	printf("ft_memcmp[1] : %d\n", ft_memcmp("abahause", "abahause", 9));
+	printf("ft_memcmp[2] : %d\n", ft_memcmp("abahause", "abahause", 200));
+	printf("ft_memcmp[3] : %d\n", ft_memcmp("abahause", "aBahaUse", 1));
+	printf("ft_memcmp[4] : %d\n", ft_memcmp("abahause", "ABAHAUSE", 9));
+	printf("ft_memcmp[5] : %d\n", ft_memcmp("abahause", "", 9));
+	printf("ft_memcmp[6] : %d\n", ft_memcmp("abahause", "aba", 0));
+	puts("===============");
+}
+
+void	test_ft_strnstr(void)
+{
+	printf("ft_strnstr[1]:  %s\n", ft_strnstr("42tokyo", "kyo", 7));
+	printf("ft_strnstr[2]:  %s\n", ft_strnstr("42tokyo", "kyo", 20));
+	printf("ft_strnstr[3]:  %s\n", ft_strnstr("42tokyo", "kyo", 3));
+	printf("ft_strnstr[4]:  %s\n", ft_strnstr("42tokyo", "kyo", 1));
+	printf("ft_strnstr[5]:  %s\n", ft_strnstr("42tokyo", "kyo", 0));
+	printf("ft_strnstr[6]:  %s\n", ft_strnstr("42tokyo", "", 5));
+	printf("ft_strnstr[7]:  %s\n", ft_strnstr("", "aaa", 5));
+	printf("ft_strnstr[8]:  %s\n", ft_strnstr("abbbcdefg", "bbc", 20));
+	printf("ft_strnstr[9]:  %s\n", ft_strnstr(NULL, "is", 0));
+	printf("ft_strnstr[10]: %s\n", ft_strnstr(NULL, "", 0));
+	printf("ft_strnstr[11]:  %s\n", ft_strnstr("aaabcabcd", "cd", 8));	// null
+	printf("ft_strnstr[12]:  %s\n", ft_strnstr("aaabcabcd", "aaabc", 5));
+	// printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault
+	// printf("ft_strnstr: %s\n", ft_strnstr("42tokyo", NULL, 5));//segmentation fault
+	puts("===============");
+}
+
+void	test_ft_atoi(void)
+{
+	printf("ft_atoi[1] : %d\n", ft_atoi("132--"));
+	printf("ft_atoi[2] : %d\n", ft_atoi("+132--"));
+	printf("ft_atoi[3] : %d\n", ft_atoi("-132--"));
+	printf("ft_atoi[4] : %d\n", ft_atoi("-   132--"));
+	printf("ft_atoi[5] : %d\n", ft_atoi("       +13k2--"));
+	puts("===============");
 }

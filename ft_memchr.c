@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:11:04 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/09 07:19:22 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/09 09:23:59 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((char *)&s[count]);
 		count++;
 	}
-
 	return (NULL);
 }

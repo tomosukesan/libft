@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 20:36:25 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/09 13:14:27 by ttachi           ###   ########.fr       */
+/*   Created: 2022/10/08 16:11:47 by ttachi            #+#    #+#             */
+/*   Updated: 2022/10/08 16:15:22 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	main(void)
 {
-	size_t	count;
+	char	str1[256] = "42tokyo";
+	// char	str2[256] = NULL;
 
-	count = 0;
-	while (count < n)
-	{
-		if ((int)s1[count] < (int)s2[count])
-			return (-1);
-		else if ((int)s1[count] > (int)s2[count])
-			return (1);
-		count++;
-	}
+	printf("%lu\n", strlen(str1));
+	printf("%lu\n", strlen(NULL));
 	return (0);
 }

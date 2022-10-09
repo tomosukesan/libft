@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 19:00:31 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/08 20:33:39 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/09 09:37:37 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		flag;
 	size_t	count;
 	char	uc_c;
 
-	flag = 0;
-	count = 0;
+	count = ft_strlen(s) + 1;
 	uc_c = (unsigned char)c;
-	while (count <= ft_strlen(s))
+	while (count--)
 	{
 		if (s[count] == uc_c)
-			flag = count;
-		count++;
+			return ((char *)&s[count]);
 	}
-	if (flag != 0)
-		return ((char *)&s[flag]);
 	return (NULL);
 }

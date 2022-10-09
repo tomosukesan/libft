@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:48:35 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/08 14:52:40 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:59:21 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 		count++;
 	}
 	if (destsize != 0)
-		uc_dest[count + 1] = '\0';
+		uc_dest[count] = '\0';
 	return (ft_strlen(src));
 }

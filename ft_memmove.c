@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:25:11 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/08 17:30:59 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:32:17 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char		*uc_dest;
 	const unsigned char	*uc_src;
 
-	count = 0;
+	count = n;
 	uc_dest = (unsigned char *)dest;
 	uc_src = (unsigned char *)src;
 	if (src < dest)
 	{
-		word_count = ft_strlen(src) - 1;
-		while (word_count >= 0 && count < n)
-		{
-			uc_dest[word_count] = uc_src[word_count];
-			word_count--;
-			count++;
-		}
+		word_count = ft_strlen(src);
+		if (word_count < count)
+			count = word_count;
+		while (count--)
+			uc_dest[count] = uc_src[count];
 	}
 	else if (src >= dest)
 		dest = ft_memcpy(dest, src, n);
