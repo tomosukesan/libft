@@ -1,9 +1,9 @@
 #ifndef _LIBFT_H_
 # define _LIBFT_H_
 
+#include <stddef.h>
 #include <stdlib.h>
-
-typedef	unsigned long	size_t;
+#include <limits.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:12:24 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/09 18:16:48 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/10 20:38:33 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_isspace(const char *str);
 
 int	ft_atoi(const char *str)
 {
-	int		chr_num;
-	int		flag;
-	int		digit;
+	int			chr_num;
+	int			flag;
+	long long	digit;
 
 	chr_num = ft_isspace(str);
 	flag = 1;
@@ -31,13 +31,19 @@ int	ft_atoi(const char *str)
 	}
 	while (str[chr_num] != '\0' && ft_isdigit(str[chr_num]) == 1)
 	{
+		if (digit > (LLONG_MAX - (str[chr_num] - '0')) / 10)
+		{
+			if (flag == -1)
+				return ((int)(LLONG_MIN));
+			return ((int)(LLONG_MAX));
+		}
 		digit = digit * 10 + (str[chr_num] - '0');
 		chr_num++;
 	}
-	return (digit * flag);
+	return ((int)(digit * flag));
 }
 
-int	ft_isspace(const char *str)	// static ??
+static int	ft_isspace(const char *str)
 {
 	int	i;
 

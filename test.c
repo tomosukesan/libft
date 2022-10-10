@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/09 17:09:28 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/10 20:32:03 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,5 +184,14 @@ void	test_ft_atoi(void)
 	printf("ft_atoi[3] : %d\n", ft_atoi("-132--"));
 	printf("ft_atoi[4] : %d\n", ft_atoi("-   132--"));
 	printf("ft_atoi[5] : %d\n", ft_atoi("       +13k2--"));
+	printf("ft_atoi[LLONG_MAX]     : %d\n", ft_atoi("9223372036854775807"));
+	printf("ft_atoi[LLONG_MAX + 1] : %d\n", ft_atoi("9223372036854775808"));
+	printf("ft_atoi[LLONG_MIN]     : %d\n", ft_atoi("-9223372036854775808"));
+	printf("ft_atoi[LLONG_MIN - 1] : %d\n", ft_atoi("-9223372036854775809"));
+	printf("ft_atoi[LLONG_MIN + 1] : %d\n", ft_atoi("-9223372036854775807"));
+	printf("ft_atoi[INT_MIN]       : %d\n", ft_atoi("-2147483648"));
+	printf("ft_atoi[INT_MIN - 1]   : %d\n", ft_atoi("-2147483649"));
+	printf("ft_atoi[INT_MAX]       : %d\n", ft_atoi("2147483647"));
+	printf("ft_atoi[INT_MAX + 1]   : %d\n", ft_atoi("2147483648"));
 	puts("===============");
 }
