@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/10 20:32:03 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/11 22:37:59 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	test_ft_memchr(void);
 void	test_ft_memcmp(void);
 void	test_ft_strnstr(void);
 void	test_ft_atoi(void);
+void	test_ft_calloc(void);
+void	test_ft_strdup(void);
+void	test_ft_substr(void);
 
 int	main(void)
 {
@@ -50,6 +53,9 @@ int	main(void)
 	test_ft_memcmp();
 	test_ft_strnstr();
 	test_ft_atoi();
+	test_ft_calloc();
+	test_ft_strdup();
+	test_ft_substr();
 	return (0);
 }
 
@@ -194,4 +200,71 @@ void	test_ft_atoi(void)
 	printf("ft_atoi[INT_MAX]       : %d\n", ft_atoi("2147483647"));
 	printf("ft_atoi[INT_MAX + 1]   : %d\n", ft_atoi("2147483648"));
 	puts("===============");
+}
+
+void	test_ft_calloc(void)
+{
+	long	*pMem;
+
+	pMem = NULL;	
+	// pMem = (long *)calloc(100, sizeof(long));
+	// pMem = (long *)calloc(0, sizeof(long));
+	// pMem = (long *)calloc(100, 0);
+	// if (pMem == NULL)
+	// 	return (0);
+	// for (i = 0; i < 100; i++)
+	// 	pMem[i] = i;
+	write(1, pMem, 100 * sizeof(long));
+	free(pMem);
+}
+
+void	test_ft_strdup(void)
+{
+	printf("ft_strdup: %s\n", ft_strdup("42tokyo"));
+	printf("ft_strdup: %s\n", ft_strdup(""));			// Nothing
+	// printf("ft_strdup: %s\n", ft_strdup(NULL));			// segmentation fault
+	puts("===============");
+
+}
+
+void	test_ft_substr(void)
+{
+	char	*t;
+
+	t = ft_substr("42tokyo", 0, 7);
+	printf("ft_substr[1]: %s\n", t);
+	free(t);
+	t = ft_substr("42tokyo", 2, 7);
+	printf("ft_substr[2]: %s\n", t);
+	free(t);
+	t = ft_substr("42tokyo", 0, 3);
+	printf("ft_substr[3]: %s\n", t);
+	free(t);
+	t = ft_substr("42tokyo", 2, 0);
+	if (t != NULL)
+	{
+		printf("ft_substr[4]: %s\n", t);
+		free(t);
+	}
+	t = ft_substr("42tokyo", 2, SIZE_MAX);
+	printf("ft_substr[5]: %s\n", t);
+	free(t);
+	t = ft_substr("42tokyo", -1, 3);
+	if (t != NULL)
+	{
+		printf("ft_substr[6]: %s\n", t);
+		free(t);
+	}
+	t = ft_substr("", 10, 3);
+	if (t != NULL)
+	{
+		printf("ft_substr[7]: %s\n", t);
+		free(t);
+	}
+	t = ft_substr(NULL, 0, 3);
+	if (t != NULL)
+	{
+		printf("ft_substr[8]: %s\n", t);
+		free(t);
+	}
 }

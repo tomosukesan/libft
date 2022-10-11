@@ -6,13 +6,14 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:12:24 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/10 20:38:33 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/11 19:14:44 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
+// static
 int	ft_isspace(const char *str);
 
 int	ft_atoi(const char *str)
@@ -43,7 +44,8 @@ int	ft_atoi(const char *str)
 	return ((int)(digit * flag));
 }
 
-static int	ft_isspace(const char *str)
+// static int
+int	ft_isspace(const char *str)
 {
 	int	i;
 

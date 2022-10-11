@@ -6,13 +6,26 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 19:50:08 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/10 19:55:45 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/11 19:30:30 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
+#include "libft.h"
 
-// void	*ft_calloc(size_t count, size_t size)
-// {
-	
-// }
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*buf;
+
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
+	if (count > SIZE_MAX / size)
+		return (NULL);
+	buf = malloc(count * size);
+	if (buf == NULL)
+		return (NULL);
+	ft_bzero(buf, count * size);
+	return (buf);
+}
