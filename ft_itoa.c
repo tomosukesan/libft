@@ -1,30 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 08:37:34 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/12 13:17:25 by ttachi           ###   ########.fr       */
+/*   Created: 2022/10/12 17:51:05 by ttachi            #+#    #+#             */
+/*   Updated: 2022/10/12 19:43:45 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_itoa(int n)
 {
-	size_t	s1_len;
-	size_t	s2_len;
-	char	*result;
+	int			minus_flag;
+	int			digit;
+	long long	tmp;
+	char		*result;
 
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	result = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	minus_flag = 0;
+	digit = 0;
+	tmp = (long long)n;
+	if (n < 0)
+	{
+		minus_flag++;
+		tmp *= -1;
+	}
+	while (n /= 10)
+		digit++;
+	result = malloc(sizeof(char) * (digit + minus_flag + 1));
 	if (result == NULL)
 		return (NULL);
-	if (s1_len != 0)
-		ft_strlcpy(result, s1, s1_len + 1);
-	ft_strlcat(result, s2, s1_len + s2_len + 1);
+	result[digit + minus_flag] = '\0';
+	while (0 <= digit + minus_flag)
+	{
+		result[digit + minus_flag] = tmp % 10 + '0';
+		tmp /= 10;
+		digit--;
+	}
+	if (minus_flag)
+		result[0] = '-';
 	return (result);
 }

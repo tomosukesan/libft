@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/12 09:34:16 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/12 19:20:04 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 #include "unistd.h"
 #include "libft.h"
 
@@ -28,6 +29,8 @@ void	test_ft_calloc(void);
 void	test_ft_strdup(void);
 void	test_ft_substr(void);
 void	test_ft_strjoin(void);
+void	test_ft_strtrim(void);
+void	test_ft_itoa(void);
 
 int	main(void)
 {
@@ -57,7 +60,9 @@ int	main(void)
 	test_ft_calloc();
 	test_ft_strdup();
 	test_ft_substr();
-	test_ft_strjoin();
+	// test_ft_strjoin();
+	test_ft_strtrim();
+	test_ft_itoa();
 	return (0);
 }
 
@@ -269,10 +274,12 @@ void	test_ft_substr(void)
 	//	printf("ft_substr[8]: %s\n", t);
 	//	free(t);
 	//}
+	puts("===============");
 }
 
 void	test_ft_strjoin(void)
 {
+	// なぜか連続して関数を呼び出すとおかしな挙動を示す
 	char	*t;
 	t = ft_strjoin("42", "tokyo");
 	printf("ft_strjoin[1]: %s\n", t);
@@ -288,5 +295,25 @@ void	test_ft_strjoin(void)
 	free(t);
 	//t = ft_strjoin("42", NULL);
 	//printf("ft_strjoin[3]: %s\n", t);
-	//frew(t);
+	//free(t);
+	puts("===============");
+}
+
+void	test_ft_strtrim(void)
+{
+	printf("1231aaa1a434123, 1234\n");
+	// printf("ft_strtrim[1]: %s\n", ft_strtrim("1234aaa1a234123", "1234"));
+	printf("ft_strtrim[1]: %s\n", ft_strtrim("1231aaa1a434123", "1234"));
+
+	puts("===============");
+}
+
+void	test_ft_itoa(void)
+{
+	printf("%s\n", ft_itoa(1234));
+	printf("%s\n", ft_itoa(-1234));
+	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(INT32_MAX));
+	printf("%s\n", ft_itoa(INT32_MIN));
+	puts("===============");
 }
