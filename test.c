@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/11 22:37:59 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/12 09:34:16 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	test_ft_atoi(void);
 void	test_ft_calloc(void);
 void	test_ft_strdup(void);
 void	test_ft_substr(void);
+void	test_ft_strjoin(void);
 
 int	main(void)
 {
@@ -56,6 +57,7 @@ int	main(void)
 	test_ft_calloc();
 	test_ft_strdup();
 	test_ft_substr();
+	test_ft_strjoin();
 	return (0);
 }
 
@@ -104,8 +106,8 @@ void	test_ft_strlcpy(void)
 	// ft_strlcpy(NULL, src, 0); // expect: nothing
 	// ft_strlcpy(dest, NULL, 0); // expect: segmentation fault
 	// ft_strlcpy(NULL, NULL, 0); // expect: segmentation fault
-	printf("\nft_strlcpy[1]:%zu\n", ft_strlcpy(dest, src, 10));
-	printf("ft_strlcpy[2]:%zu\n", ft_strlcpy(dest, src, 5));
+	printf("\nft_strlcpy[1] value: %zu dest: %s\n", ft_strlcpy(dest, src, 10), dest);
+	printf("ft_strlcpy[2] value: %zu dest: %s\n", ft_strlcpy(dest, src, 5), dest);
 	printf("ft_strlcpy[3]:%zu\n", ft_strlcpy(dest, src, 0));
 	printf("ft_strlcpy[4]:%zu\n", ft_strlcpy(NULL, src, 0));
 	puts("===============");
@@ -120,12 +122,12 @@ void	test_ft_strlcat(void)
 	printf("src確認:     %s\n", src);
 	printf("ft_strlcat前: %s\n", dest);
 	// ft_strlcat(dest, src, 20);	// result: Success
-	// ft_strlcat(dest, src, 10);	// result: Halfway
+	 ft_strlcat(dest, src, 10);	// result: Halfway
 	// ft_strlcat(NULL, src, 20);	// expect: segmentation fault
 	// ft_strlcat(dest, NULL, 20);	// expect: segmentation fault
 	// ft_strlcat(dest, src, 0);	// expect: goldと出力
 	// ft_strlcat(NULL, NULL, 20);	// expect: segmentation fault
-	ft_strlcat(NULL, src, 0);		// expect: goldと出力
+	//ft_strlcat(NULL, src, 0);		// expect: goldと出力
 	// ft_strlcat(NULL, src, 1);	// expect: segmentation fault
 	// ft_strlcat(dest, NULL, 0);	// expect: segmentation fault
 	// ft_strlcpy(NULL, NULL, 0);	// expect: segmentation fault
@@ -206,7 +208,7 @@ void	test_ft_calloc(void)
 {
 	long	*pMem;
 
-	pMem = NULL;	
+	pMem = NULL;
 	// pMem = (long *)calloc(100, sizeof(long));
 	// pMem = (long *)calloc(0, sizeof(long));
 	// pMem = (long *)calloc(100, 0);
@@ -261,10 +263,30 @@ void	test_ft_substr(void)
 		printf("ft_substr[7]: %s\n", t);
 		free(t);
 	}
-	t = ft_substr(NULL, 0, 3);
-	if (t != NULL)
-	{
-		printf("ft_substr[8]: %s\n", t);
-		free(t);
-	}
+	//t = ft_substr(NULL, 0, 3);  // segmentation fault
+	//if (t != NULL)
+	//{
+	//	printf("ft_substr[8]: %s\n", t);
+	//	free(t);
+	//}
+}
+
+void	test_ft_strjoin(void)
+{
+	char	*t;
+	t = ft_strjoin("42", "tokyo");
+	printf("ft_strjoin[1]: %s\n", t);
+	free(t);
+	t = ft_strjoin("", "tokyo");
+	printf("ft_strjoin[2]: %s\n", t);
+	free(t);
+	t = ft_strjoin("42", "");
+	printf("ft_strjoin[3]: %s\n", t);
+	free(t);
+	t = ft_strjoin("", "");
+	printf("ft_strjoin[4]: %s\n", t);
+	free(t);
+	//t = ft_strjoin("42", NULL);
+	//printf("ft_strjoin[3]: %s\n", t);
+	//frew(t);
 }

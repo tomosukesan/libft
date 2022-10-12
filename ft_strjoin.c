@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 08:32:32 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/12 08:37:19 by ttachi           ###   ########.fr       */
+/*   Created: 2022/10/12 08:37:34 by ttachi            #+#    #+#             */
+/*   Updated: 2022/10/12 09:08:43 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			count;
-	unsigned char	*uc_s1;
-	unsigned char	*uc_s2;
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*result;
 
-	count = 0;
-	uc_s1 = (unsigned char *)s1;
-	uc_s2 = (unsigned char *)s2;
-	while (count < n)
-	{
-		if (uc_s1[count] < uc_s2[count])
-			return (-1);
-		else if (uc_s1[count] > uc_s2[count])
-			return (1);
-		count++;
-	}
-	return (0);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	result = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (result == NULL)
+		return (NULL);
+	ft_strlcpy(result, s1, s1_len + 1);
+	ft_strlcat(result, s2, s1_len + s2_len + 1);
+	return (result);
 }
