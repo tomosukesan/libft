@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:51:05 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/12 19:43:45 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/13 21:31:02 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// static
+char	*conv_to_text(int minus_flag, int digit, long long tmp, char *result);
 
 char	*ft_itoa(int n)
 {
@@ -32,6 +35,13 @@ char	*ft_itoa(int n)
 	result = malloc(sizeof(char) * (digit + minus_flag + 1));
 	if (result == NULL)
 		return (NULL);
+	return (conv_to_text(minus_flag, digit, tmp, result));
+
+}
+
+// static
+char	*conv_to_text(int minus_flag, int digit, long long tmp, char *result)
+{
 	result[digit + minus_flag] = '\0';
 	while (0 <= digit + minus_flag)
 	{

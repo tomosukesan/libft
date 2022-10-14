@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/12 19:20:04 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/13 21:31:38 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -310,10 +310,10 @@ void	test_ft_strtrim(void)
 
 void	test_ft_itoa(void)
 {
-	printf("%s\n", ft_itoa(1234));
-	printf("%s\n", ft_itoa(-1234));
-	printf("%s\n", ft_itoa(0));
-	printf("%s\n", ft_itoa(INT32_MAX));
-	printf("%s\n", ft_itoa(INT32_MIN));
+	printf("ft_itoa[1]: %s\n", ft_itoa(1234));
+	printf("ft_itoa[2]: %s\n", ft_itoa(-1234));
+	printf("ft_itoa[3]: %s\n", ft_itoa(0));
+	printf("ft_itoa[4]: %s\n", ft_itoa(INT32_MAX));
+	printf("ft_itoa[5]: %s\n", ft_itoa(INT32_MIN));
 	puts("===============");
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 20:14:55 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/12 20:15:12 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/13 21:34:55 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putendl_fd(char *s, int fd)
-{
+//void	ft_putendl_fd(char *s, int fd)
+//{
 
-}
+//}
