@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:12:24 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/11 19:14:44 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/14 22:56:07 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	ft_atoi(const char *str)
 	return ((int)(digit * flag));
 }
 
-// static int
 int	ft_isspace(const char *str)
 {
+// static int
 	int	i;
 
 	i = 0;

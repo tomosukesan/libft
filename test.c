@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/13 21:31:38 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/14 23:13:39 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	test_ft_substr(void);
 void	test_ft_strjoin(void);
 void	test_ft_strtrim(void);
 void	test_ft_itoa(void);
+void	test_ft_putchar_putendl_fd(void);
+void	test_ft_putstr_putnbr_fd(void);
 
 int	main(void)
 {
@@ -63,6 +65,10 @@ int	main(void)
 	// test_ft_strjoin();
 	test_ft_strtrim();
 	test_ft_itoa();
+	test_ft_putchar_putendl_fd();
+	test_ft_putstr_putnbr_fd();
+	free(ft_split("AAAAbbBBBbbCC", 'b'));
+
 	return (0);
 }
 
@@ -315,5 +321,39 @@ void	test_ft_itoa(void)
 	printf("ft_itoa[3]: %s\n", ft_itoa(0));
 	printf("ft_itoa[4]: %s\n", ft_itoa(INT32_MAX));
 	printf("ft_itoa[5]: %s\n", ft_itoa(INT32_MIN));
+	puts("===============");
+}
+
+void	test_ft_putchar_putendl_fd(void)
+{
+	ft_putchar_fd('4', 1);
+	ft_putchar_fd('2', 1);
+	ft_putchar_fd('t', 1);
+	ft_putchar_fd('o', 1);
+	ft_putchar_fd('k', 1);
+	ft_putchar_fd('y', 1);
+	ft_putchar_fd('o', 1);
+	ft_putchar_fd('\n', 1);
+	ft_putendl_fd("42tokyo", 1);
+}
+
+void	test_ft_putstr_putnbr_fd(void)
+{
+	puts("==ft_putnbr_fd==");
+	ft_putstr_fd("ft_putnbr_fd[1]: ", 1);
+	ft_putnbr_fd(1234, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("ft_putnbr_fd[2]: ", 1);
+	ft_putnbr_fd(-1234, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("ft_putnbr_fd[3]: ", 1);
+	ft_putnbr_fd(0, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("ft_putnbr_fd[4]: ", 1);
+	ft_putnbr_fd(INT_MAX, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("ft_putnbr_fd[5]: ", 1);
+	ft_putnbr_fd(INT_MIN, 1);
+	ft_putchar_fd('\n', 1);
 	puts("===============");
 }
