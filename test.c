@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/16 17:00:46 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/16 22:13:48 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	test_ft_strtrim(void);
 void	test_ft_itoa(void);
 void	test_ft_putchar_putendl_fd(void);
 void	test_ft_putstr_putnbr_fd(void);
+void	test_ft_split(void);
 
 int	main(void)
 {
@@ -67,8 +68,7 @@ int	main(void)
 	test_ft_itoa();
 	test_ft_putchar_putendl_fd();
 	test_ft_putstr_putnbr_fd();
-	puts("===ft_split====");
-	free(ft_split("AAAAbbBBBbbCC", 'b'));
+	test_ft_split();
 
 	return (0);
 }
@@ -356,4 +356,36 @@ void	test_ft_putstr_putnbr_fd(void)
 	ft_putstr_fd("ft_putnbr_fd[5]: ", 1);
 	ft_putnbr_fd(INT_MIN, 1);
 	ft_putchar_fd('\n', 1);
+}
+
+void	test_ft_split(void)
+{
+	puts("\n===ft_split====");
+	free(ft_split("42tokyo", 'o'));
+	puts(" * * * * *");
+	free(ft_split("abahause", 'a'));
+	puts(" * * * * *");
+	free(ft_split("AAAAbbBBBbbCC", 'b'));
+	puts(" * * * * *");
+	free(ft_split("AAAA", 'b'));
+	puts(" * * * * *");
+	free(ft_split("AAAA", 'A'));			// [0] = NULL
+	puts(" * * * * *");
+	free(ft_split("AAAA", 0));
+	puts(" * * * * *");
+	free(ft_split("tripouille", 0));
+	puts(" * * * * *");
+	free(ft_split("AAAA", 0));
+	puts(" * * * * *");
+	puts(" * * * * *");
+	free(ft_split("", 'a'));
+	puts(" * * * * *");
+	free(ft_split("", 0));
+	puts(" * * * * *");
+	free(ft_split("", 0));
+	puts(" * * * * *");
+	free(ft_split(NULL, 'a'));
+	puts(" * * * * *");
+	free(ft_split(NULL, 0));
+	puts(" * * * * *");
 }
