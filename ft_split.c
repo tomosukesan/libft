@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:15:19 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/14 23:50:13 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/16 18:35:27 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // static
-int	count_str(char const *s, char c);
+int		count_str(char const *s, char c);
 // static
-int	count_word(char const *s, char c, int i);
+char	*get_word(char const *s, char c, int i, char *result);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		i;
 	int		str_num;
-	int		word_num;
 
 	result = NULL;		// tmp
 	i = 0;
@@ -30,11 +29,18 @@ char	**ft_split(char const *s, char c)
 	result = malloc(sizeof(char *) * str_num);
 	while (i < str_num - 1)
 	{
-		word_num = count_word(s, c, i);
-		result[i] = malloc(sizeof(char) * word_num);
+		result[i] = get_word(s, c, i, result[i]);
+		if (result[i] == NULL)
+		{
+			i++;
+			while ((--i) >= 0)
+				free(result[i]);
+			return (NULL);
+		}
+		printf("result[%d]: %s\n", i, result[i]);
 		i++;
 	}
-	
+
 
 	return (result);
 }
@@ -59,7 +65,7 @@ int	count_str(char const *s, char c)
 	return (str_num);
 }
 
-int	count_word(char const *s, char c, int i)
+char	*get_word(char const *s, char c, int i, char *result)
 {
 // static
 	int		str_num;
@@ -72,7 +78,7 @@ int	count_word(char const *s, char c, int i)
 	{
 		tail = ft_strchr((const char *)head, (int)c);
 		if (tail != NULL && str_num == i)
-			return (tail - head);
+			break;
 		while (tail != NULL && *(tail + 1) == c)
 			tail++;
 		if (tail)
@@ -83,6 +89,11 @@ int	count_word(char const *s, char c, int i)
 		else
 			break ;
 	}
-	tail = ft_strchr((const char *)head, '\0');
-	return (tail - head);
+	if (tail == NULL)
+		tail = ft_strchr((const char *)head, '\0');
+	result = malloc(sizeof(char) * (tail - head + 1));
+	if (result == NULL)
+		return(NULL);
+	ft_strlcpy(result, (const char *)head, (tail - head + 1));
+	return (result);
 }

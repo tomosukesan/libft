@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/14 23:13:39 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/16 17:00:46 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	main(void)
 	test_ft_itoa();
 	test_ft_putchar_putendl_fd();
 	test_ft_putstr_putnbr_fd();
+	puts("===ft_split====");
 	free(ft_split("AAAAbbBBBbbCC", 'b'));
 
 	return (0);
@@ -355,5 +356,4 @@ void	test_ft_putstr_putnbr_fd(void)
 	ft_putstr_fd("ft_putnbr_fd[5]: ", 1);
 	ft_putnbr_fd(INT_MIN, 1);
 	ft_putchar_fd('\n', 1);
-	puts("===============");
 }
