@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/16 22:13:48 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/17 17:33:34 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(void)
 	test_ft_calloc();
 	test_ft_strdup();
 	test_ft_substr();
-	// test_ft_strjoin();
+	test_ft_strjoin();
 	test_ft_strtrim();
 	test_ft_itoa();
 	test_ft_putchar_putendl_fd();
@@ -286,7 +286,6 @@ void	test_ft_substr(void)
 
 void	test_ft_strjoin(void)
 {
-	// なぜか連続して関数を呼び出すとおかしな挙動を示す
 	char	*t;
 	t = ft_strjoin("42", "tokyo");
 	printf("ft_strjoin[1]: %s\n", t);
@@ -311,6 +310,8 @@ void	test_ft_strtrim(void)
 	printf("1231aaa1a434123, 1234\n");
 	// printf("ft_strtrim[1]: %s\n", ft_strtrim("1234aaa1a234123", "1234"));
 	printf("ft_strtrim[1]: %s\n", ft_strtrim("1231aaa1a434123", "1234"));
+	printf("ft_strtrim[2]: %s\n", ft_strtrim("1231aaa1a434123", ""));
+	printf("ft_strtrim[3]: %s\n", ft_strtrim("   xxx   xxx", " x"));
 
 	puts("===============");
 }
@@ -319,9 +320,11 @@ void	test_ft_itoa(void)
 {
 	printf("ft_itoa[1]: %s\n", ft_itoa(1234));
 	printf("ft_itoa[2]: %s\n", ft_itoa(-1234));
-	printf("ft_itoa[3]: %s\n", ft_itoa(0));
-	printf("ft_itoa[4]: %s\n", ft_itoa(INT32_MAX));
-	printf("ft_itoa[5]: %s\n", ft_itoa(INT32_MIN));
+	printf("ft_itoa[3]: %s\n", ft_itoa(-1));
+	printf("ft_itoa[4]: %s\n", ft_itoa(1));
+	printf("ft_itoa[5]: %s\n", ft_itoa(0));
+	printf("ft_itoa[6]: %s\n", ft_itoa(INT32_MAX));
+	printf("ft_itoa[7]: %s\n", ft_itoa(INT32_MIN));
 	puts("===============");
 }
 

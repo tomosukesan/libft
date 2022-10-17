@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 09:37:18 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/12 19:15:56 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/17 16:23:30 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*tail;
 	char	*result;
 
-	if (s1 == NULL)
-		return (NULL);
 	head = (char *)s1;
 	while (*head != '\0' && ft_strchr(set, (int)(*head)) != NULL)
 		head++;
+	if (*head == '\0')
+	{
+		result = malloc(sizeof(char));
+		result[0] = '\0';
+		return (result);
+	}
 	tail = head;
 	while (*tail != '\0')
 		tail++;
