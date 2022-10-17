@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:15:19 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/16 22:12:53 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/16 23:00:59 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		count_str(char const *s, char c);
 int		all_split_c(char const *s, char c);
 // static
 char	*get_word(char const *s, char c, int i, char *result);
+// static
+char	*put_tail(char **head, char c, int str_num, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -42,9 +44,11 @@ char	**ft_split(char const *s, char c)
 				free(result[i]);
 			return (NULL);
 		}
+		printf("result[%d]: %s\n", i, result[i]);	// delete
 		i++;
 	}
 	result[i] = NULL;
+	printf("result[%d]: %s\n", i, result[i]);		// delete
 	return (result);
 }
 
@@ -72,6 +76,7 @@ int	count_str(char const *s, char c)
 
 int	all_split_c(char const *s, char c)
 {
+// static
 	size_t	i;
 	size_t	flag;
 	size_t	s_len;
@@ -90,6 +95,7 @@ int	all_split_c(char const *s, char c)
 
 char	*get_word(char const *s, char c, int i, char *result)
 {
+// static
 	int		str_num;
 	char	*head;
 	char	*tail;
@@ -101,19 +107,7 @@ char	*get_word(char const *s, char c, int i, char *result)
 	tail = NULL;
 	while (*head == c)
 		head++;
-	while (head && (str_num++) <= i)
-	{
-		tail = ft_strchr((const char *)head, (int)c);
-		if (tail != NULL && str_num == i)
-			break ;
-		while (tail != NULL && *(tail + 1) == c)
-			tail++;
-		if (tail)
-		{
-			tail++;
-			head = tail;
-		}
-	}
+	tail = put_tail(&(head), c, str_num, i);
 	if (tail == NULL)
 		tail = ft_strchr((const char *)head, '\0');
 	result = malloc(sizeof(char) * (tail - head + 1));
@@ -121,4 +115,25 @@ char	*get_word(char const *s, char c, int i, char *result)
 		return (NULL);
 	ft_strlcpy(result, (const char *)head, (tail - head + 1));
 	return (result);
+}
+
+char	*put_tail(char **head, char c, int str_num, int i)
+{
+// static
+	char	*tail;
+
+	while (*head && (str_num++) <= i)
+	{
+		tail = ft_strchr((const char *)*head, (int)c);
+		if (tail != NULL && str_num == i)
+			break ;
+		while (tail != NULL && *(tail + 1) == c)
+			tail++;
+		if (tail)
+		{
+			tail++;
+			*head = tail;
+		}
+	}
+	return (tail);
 }
