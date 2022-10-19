@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
+NAME = libft.a 
 OBJS = *.o
 
 all: $(NAME)
