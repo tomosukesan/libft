@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:51:05 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/17 17:31:24 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/17 19:53:04 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ char	*ft_itoa(int n)
 		minus_flag++;
 		tmp *= -1;
 	}
-	// if (n == 0)
-	// 	digit = 1;
-	// else if (n >= 10)
-	// 	n /= 10;
 	if (n > -10 && n < 10)
 		digit = 1;
 	while (n <= -10 || n >= 10)
@@ -49,20 +45,20 @@ char	*ft_itoa(int n)
 
 char	*conv_to_text(int minus_flag, int digit, long long tmp, char *result)
 {
-// static
+// static : prototypeも
+	if (minus_flag)
+		result[0] = '-';
 	result[digit + minus_flag] = '\0';
-	if (tmp == 0)
+	if (tmp < 10)
 	{
-		result[0] = '0';
+		result[digit + minus_flag - 1] = tmp + '0';
 		return (result);
 	}
-	while (0 <= digit + minus_flag)
+	while (0 <= digit)
 	{
 		result[digit + minus_flag] = tmp % 10 + '0';
 		tmp /= 10;
 		digit--;
 	}
-	if (minus_flag)
-		result[0] = '-';
 	return (result);
 }
