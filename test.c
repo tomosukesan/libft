@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/17 19:51:34 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/20 18:48:23 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	test_ft_strlcpy(void);
 void	test_ft_strlcat(void);
 void	test_ft_strncmp(void);
 void	test_ft_memchr(void);
+void	test_ft_memcpy(void);
 void	test_ft_memcmp(void);
 void	test_ft_strnstr(void);
 void	test_ft_atoi(void);
@@ -57,6 +58,7 @@ int	main(void)
 	printf("ft_strrchr: %s\n", ft_strrchr("42tokyo", (int)'o'));
 	test_ft_strncmp();
 	test_ft_memchr();
+	test_ft_memcpy();
 	test_ft_memcmp();
 	test_ft_strnstr();
 	test_ft_atoi();
@@ -133,6 +135,7 @@ void	test_ft_strlcat(void)
 
 	printf("src確認:     %s\n", src);
 	printf("ft_strlcat前: %s\n", dest);
+	// ft_strlcat("cdefghi", "ab", 10);
 	// ft_strlcat(dest, src, 20);	// result: Success
 	 ft_strlcat(dest, src, 10);	// result: Halfway
 	// ft_strlcat(NULL, src, 20);	// expect: segmentation fault
@@ -148,12 +151,17 @@ void	test_ft_strlcat(void)
 
 void	test_ft_strncmp(void)
 {
+	int	i = 6;
 	printf("ft_strncmp[1]: %d\n", ft_strncmp("abahause", "abahause", 8));
 	printf("ft_strncmp[2]: %d\n", ft_strncmp("abahause", "abahause", 30));
 	printf("ft_strncmp[3]: %d\n", ft_strncmp("abahause", "ABAHAUSE", 8));
 	printf("ft_strncmp[4]: %d\n", ft_strncmp("abahause", "aBaHAUSE", 8));
 	printf("ft_strncmp[5]: %d\n", ft_strncmp("abahause", "", 8));
 	printf("ft_strncmp[6]: %d\n", ft_strncmp("abahause", "", 0));
+	printf("ft_strncmp[%d]: %d\n", ++i, ft_strncmp(NULL, NULL, 0));
+	// printf("ft_strncmp[%d]: %d\n", ++i, ft_strncmp(NULL, NULL, 3));
+	// printf("ft_strncmp[%d]: %d\n", ++i, ft_strncmp(NULL, "", 3));
+	// printf("ft_strncmp[%d]: %d\n", ++i, ft_strncmp("abahause", NULL, 3));
 	puts("===============");
 }
 
@@ -167,14 +175,36 @@ void	test_ft_memchr(void)
 	puts("===============");
 }
 
+void	test_ft_memcpy(void)
+{
+
+	char	dest[256];
+	char	src[256] = "42tokyo";
+	printf("ft_memcpy[1]: %s\n", ft_memcpy(dest, src, 3));
+	// printf("ft_memcpy[2]: %s\n", ft_memcpy("24", NULL, 2));	// segmentation fault
+	printf("ft_memcpy[3]: %s\n", ft_memcpy("24", NULL, 0));	// 24
+	printf("ft_memcpy[4]: %s\n", ft_memcpy(NULL, src, 0));	// (null)
+	printf("ft_memcpy[5]: %s\n", ft_memcpy(NULL, NULL, 0));	// (null)
+	// printf("ft_memcpy[6]: %s\n", ft_memcpy("", src, 3));	// segmentation fault
+	// [6]: 本家はsegmentation fault。これはbus error。
+	printf("ft_memcpy[7]: %s\n", ft_memcpy(dest, "", 3));	// 未表示
+	printf("ft_memcpy[8]: %s\n", ft_memcpy("", "", 1));	// 未表示 > bus error
+	printf("ft_memcpy[9]: %s\n", ft_memcpy("", "", 0));	// 未表示
+	// printf("ft_memcpy[]: %s\n", ft_memcpy(NULL, src, 3));	// segmentation fault
+	// printf("ft_memcpy[]: %s\n", ft_memcpy(dest, NULL, 3));	// segmentation fault
+	puts("===============");
+}
+
 void	test_ft_memcmp(void)
 {
 	printf("ft_memcmp[1] : %d\n", ft_memcmp("abahause", "abahause", 9));
 	printf("ft_memcmp[2] : %d\n", ft_memcmp("abahause", "abahause", 200));
 	printf("ft_memcmp[3] : %d\n", ft_memcmp("abahause", "aBahaUse", 1));
+	printf("ft_memcmp[3] : %d\n", ft_memcmp("aBahaUse", "abahause", 10));
 	printf("ft_memcmp[4] : %d\n", ft_memcmp("abahause", "ABAHAUSE", 9));
 	printf("ft_memcmp[5] : %d\n", ft_memcmp("abahause", "", 9));
 	printf("ft_memcmp[6] : %d\n", ft_memcmp("abahause", "aba", 0));
+	printf("ft_memcmp[7] : %d\n", ft_memcmp("", "", 10));
 	puts("===============");
 }
 

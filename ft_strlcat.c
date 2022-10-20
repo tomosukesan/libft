@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:00:26 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/12 13:26:18 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/20 18:54:31 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
 	count = 0;
 	if (dest_len >= destsize)
 		return (src_len + destsize);
-	while (dest_len + count < destsize - 1)
+	while (dest_len + count < destsize - 1 && count < src_len)
 	{
 		dest[dest_len + count] = src[count];
-		if (src[count] == '\0')
-			return (dest_len + src_len);
 		count++;
 	}
 	if (destsize != 0)
-		dest[dest_len + count + 1] = '\0';
+		dest[dest_len + count] = '\0';
 	return (dest_len + src_len);
 }

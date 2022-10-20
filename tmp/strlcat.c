@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:20:38 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/09 11:21:57 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/20 17:58:44 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,18 @@
 
 int	main(void)
 {
+	char	*str = electric_alloc(10);
+	char	*buff = electric_alloc(10);
+	strcpy(buff, "AB");
+	strcpy(str, "CDEFGHI");
+	strlcat(buff, str, 10);
+	printf("strlcat後: %s\n", buff);
+
 	char	src[256] = "experience";
 	char	dest[256] = "gold";
 
 	printf("strlcat前: %s\n", dest);
+	strlcat("cdefghi", "ab", 10);
 	// strlcat(dest, src, 20);	// result: Success
 	// strlcat(dest, src, 10);		// result: Halfway
 	// strlcat(NULL, src, 20); // expect: segmentation fault

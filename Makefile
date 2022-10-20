@@ -13,6 +13,8 @@ $(NAME): $(OBJS)
 
 re: clean fclean all
 
+bonus:
+
 .PHONY: clean fclean
 clean:
 	$(RM) $(OBJS)
