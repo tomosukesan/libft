@@ -18,5 +18,5 @@ bonus:
 .PHONY: clean fclean
 clean:
 	$(RM) $(OBJS)
-fclean:
+fclean: clean
 	$(RM) $(NAME)
