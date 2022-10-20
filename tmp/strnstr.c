@@ -15,7 +15,8 @@ int	main(void)
 	printf("strnstr[10]: %s\n", strnstr(NULL, "", 0));
 	printf("strnstr[11]: %s\n", strnstr("aaabcabcd", "cd", 8));		// null
 	printf("strnstr[12]: %s\n", strnstr("aaabcabcd", "aaabc", 5));	// aaabcabcd
+	printf("strnstr[13]: %s\n", strnstr("fake", NULL, 3));	// segmentation fault
 	// printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault
-	// printf("ft_strnstr: %s\n", ft_strnstr("42tokyo", NULL, 5));//segmentation 
+	// printf("ft_strnstr: %s\n", ft_strnstr("42tokyo", NULL, 5));//segmentation
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/20 18:48:23 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/20 21:56:44 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,20 +178,20 @@ void	test_ft_memchr(void)
 void	test_ft_memcpy(void)
 {
 
-	char	dest[256];
-	char	src[256] = "42tokyo";
-	printf("ft_memcpy[1]: %s\n", ft_memcpy(dest, src, 3));
-	// printf("ft_memcpy[2]: %s\n", ft_memcpy("24", NULL, 2));	// segmentation fault
-	printf("ft_memcpy[3]: %s\n", ft_memcpy("24", NULL, 0));	// 24
-	printf("ft_memcpy[4]: %s\n", ft_memcpy(NULL, src, 0));	// (null)
-	printf("ft_memcpy[5]: %s\n", ft_memcpy(NULL, NULL, 0));	// (null)
-	// printf("ft_memcpy[6]: %s\n", ft_memcpy("", src, 3));	// segmentation fault
-	// [6]: 本家はsegmentation fault。これはbus error。
-	printf("ft_memcpy[7]: %s\n", ft_memcpy(dest, "", 3));	// 未表示
-	printf("ft_memcpy[8]: %s\n", ft_memcpy("", "", 1));	// 未表示 > bus error
-	printf("ft_memcpy[9]: %s\n", ft_memcpy("", "", 0));	// 未表示
-	// printf("ft_memcpy[]: %s\n", ft_memcpy(NULL, src, 3));	// segmentation fault
-	// printf("ft_memcpy[]: %s\n", ft_memcpy(dest, NULL, 3));	// segmentation fault
+	//char	dest[256];
+	//char	src[256] = "42tokyo";
+	//printf("ft_memcpy[1]: %s\n", ft_memcpy(dest, src, 3));
+	//// printf("ft_memcpy[2]: %s\n", ft_memcpy("24", NULL, 2));	// segmentation fault
+	//printf("ft_memcpy[3]: %s\n", ft_memcpy("24", NULL, 0));	// 24
+	//printf("ft_memcpy[4]: %s\n", ft_memcpy(NULL, src, 0));	// (null)
+	//printf("ft_memcpy[5]: %s\n", ft_memcpy(NULL, NULL, 0));	// (null)
+	//// printf("ft_memcpy[6]: %s\n", ft_memcpy("", src, 3));	// segmentation fault
+	//// [6]: 本家はsegmentation fault。これはbus error。
+	//printf("ft_memcpy[7]: %s\n", ft_memcpy(dest, "", 3));	// 未表示
+	//printf("ft_memcpy[8]: %s\n", ft_memcpy("", "", 1));	// 未表示 > bus error
+	//printf("ft_memcpy[9]: %s\n", ft_memcpy("", "", 0));	// 未表示
+	//// printf("ft_memcpy[]: %s\n", ft_memcpy(NULL, src, 3));	// segmentation fault
+	//// printf("ft_memcpy[]: %s\n", ft_memcpy(dest, NULL, 3));	// segmentation fault
 	puts("===============");
 }
 
@@ -222,6 +222,7 @@ void	test_ft_strnstr(void)
 	printf("ft_strnstr[10]: %s\n", ft_strnstr(NULL, "", 0));
 	printf("ft_strnstr[11]:  %s\n", ft_strnstr("aaabcabcd", "cd", 8));	// null
 	printf("ft_strnstr[12]:  %s\n", ft_strnstr("aaabcabcd", "aaabc", 5));
+	//printf("ft_strnstr[13]:  %s\n", ft_strnstr("fake", NULL, 3));
 	// printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault
 	// printf("ft_strnstr: %s\n", ft_strnstr("42tokyo", NULL, 5));//segmentation fault
 	puts("===============");
@@ -342,6 +343,7 @@ void	test_ft_strtrim(void)
 	printf("ft_strtrim[1]: %s\n", ft_strtrim("1231aaa1a434123", "1234"));
 	printf("ft_strtrim[2]: %s\n", ft_strtrim("1231aaa1a434123", ""));
 	printf("ft_strtrim[3]: %s\n", ft_strtrim("   xxx   xxx", " x"));
+	printf("ft_strtrim[4]: %s\n", ft_strtrim(NULL, " "));
 
 	puts("===============");
 }

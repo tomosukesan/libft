@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:51:05 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/17 19:53:04 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/20 23:18:42 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ char	*ft_itoa(int n)
 	char		*result;
 
 	minus_flag = 0;
-	digit = 0;
+	digit = 1;
 	tmp = (long long)n;
 	if (n < 0)
 	{
 		minus_flag++;
 		tmp *= -1;
 	}
-	if (n > -10 && n < 10)
-		digit = 1;
+	//if (n > -10 && n < 10)
+	//	digit = 1;
 	while (n <= -10 || n >= 10)
 	{
 		digit++;
@@ -46,19 +46,19 @@ char	*ft_itoa(int n)
 char	*conv_to_text(int minus_flag, int digit, long long tmp, char *result)
 {
 // static : prototypeも
-	if (minus_flag)
-		result[0] = '-';
 	result[digit + minus_flag] = '\0';
 	if (tmp < 10)
-	{
 		result[digit + minus_flag - 1] = tmp + '0';
-		return (result);
-	}
-	while (0 <= digit)
+	else
 	{
-		result[digit + minus_flag] = tmp % 10 + '0';
-		tmp /= 10;
-		digit--;
+		while (minus_flag <= digit)
+		{
+			result[digit + minus_flag - 1] = tmp % 10 + '0';
+			tmp /= 10;
+			digit--;
+		}
 	}
+	if (minus_flag)
+		result[0] = '-';
 	return (result);
 }

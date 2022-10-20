@@ -7,3 +7,5 @@ a.out
 libft.a
 # tester/
 # tmp/
+libft-unit-test/
+libftTester/
