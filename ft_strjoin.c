@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 08:37:34 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/17 16:47:15 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/21 20:49:46 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*result;
 
 	if (s1 == NULL || s2 == NULL)
-		return (NULL);	
+		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	result = malloc(sizeof(char) * (s1_len + s2_len + 1));

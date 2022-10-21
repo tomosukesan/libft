@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 09:37:18 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/20 22:10:06 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/21 21:22:06 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// static
 char	*move_tail(char *head, char const *s1, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -43,7 +44,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 char	*move_tail(char *head, char const *s1, char const *set)
 {
-	char *tail;
+// static: too prototype
+	char	*tail;
 
 	tail = head;
 	while (*tail != '\0')

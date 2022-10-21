@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:05:23 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/20 21:33:06 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/21 21:25:27 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start >= s_len || len == 0)
 	{
 		t = malloc(sizeof(char));
-		*t = '\0';
+		if (t == NULL)
+			return (NULL);
+		t[0] = '\0';
 		return (t);
 	}
 	if (s_len < len)

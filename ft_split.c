@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:15:19 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/17 16:00:33 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/21 20:28:24 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,9 @@ char	**ft_split(char const *s, char c)
 				free(result[i]);
 			return (NULL);
 		}
-		// printf("result[%d]: %s\n", i, result[i]);	// delete
 		i++;
 	}
 	result[i] = NULL;
-	// printf("result[%d]: %s\n", i, result[i]);		// delete
 	return (result);
 }
 

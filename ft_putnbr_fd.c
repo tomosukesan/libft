@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:11:22 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/14 20:07:04 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/21 20:27:16 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		tmp *= -1;
 	}
-	n /= 10;
-	while (n)
+	while (n <= -10 || n >= 10)
 	{
 		devisor *= 10;
 		n /= 10;

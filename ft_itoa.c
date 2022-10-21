@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:51:05 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/20 23:18:42 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/21 19:14:20 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ char	*ft_itoa(int n)
 		minus_flag++;
 		tmp *= -1;
 	}
-	//if (n > -10 && n < 10)
-	//	digit = 1;
 	while (n <= -10 || n >= 10)
 	{
 		digit++;

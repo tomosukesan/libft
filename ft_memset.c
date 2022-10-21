@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 04:35:24 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/08 10:03:22 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/21 20:12:21 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ void	*ft_memset(void *buf, int ch, size_t n)
 		uc_buf[count] = (unsigned char)ch;
 		count++;
 	}
-	buf = uc_buf;
-	return (buf);
+	return (uc_buf);
 }
