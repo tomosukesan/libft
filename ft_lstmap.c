@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:57:10 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/20 13:10:29 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/20 23:47:18 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	new_lst = lst;
 	ft_lstiter(new_lst, (void *)f);
-	ft_lstdelone(new_lst, del);
+	ft_lstdelone(new_lst, (void *)del);
 	return (new_lst);
 }
