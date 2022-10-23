@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/22 22:33:00 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/23 12:30:15 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,30 +216,15 @@ void	test_ft_strnstr(void)
 	printf("ft_strnstr[4]:  %s\n", ft_strnstr("42tokyo", "kyo", 1));
 	printf("ft_strnstr[5]:  %s\n", ft_strnstr("42tokyo", "kyo", 0));
 	printf("ft_strnstr[6]:  %s\n", ft_strnstr("42tokyo", "", 5));
+	printf("ft_strnstr[6*]: %s\n", ft_strnstr("42tokyo", "", 10));
 	printf("ft_strnstr[7]:  %s\n", ft_strnstr("", "aaa", 5));
+	printf("ft_strnstr[7*]: %s\n", ft_strnstr("", "", 0));				// 空文字
 	printf("ft_strnstr[8]:  %s\n", ft_strnstr("abbbcdefg", "bbc", 20));
 	printf("ft_strnstr[9]:  %s\n", ft_strnstr(NULL, "is", 0));
 	printf("ft_strnstr[10]: %s\n", ft_strnstr(NULL, "", 0));
 	printf("ft_strnstr[11]:  %s\n", ft_strnstr("aaabcabcd", "cd", 8));	// null
 	printf("ft_strnstr[12]:  %s\n", ft_strnstr("aaabcabcd", "aaabc", 5));
-	// char *str = "libft-test-tokyo";
-	// int	len = strlen(str);
-	// for (int i = 0; i < len; i++)
-	// {
-	// 	ASSERT_EQ_PTR(ft_strnstr(str, "", i), strnstr(str, "", i));
-	// 	ASSERT_EQ_PTR(ft_strnstr(str, "libft-test-tokyo", i), strnstr(str, "libft-test-tokyo", i));
-	// 	ASSERT_EQ_PTR(ft_strnstr(str, "libft", i), strnstr(str, "libft", i));
-	// 	ASSERT_EQ_PTR(ft_strnstr(str, "test", i), strnstr(str, "test", i));
-	// 	ASSERT_EQ_PTR(ft_strnstr(str, "tokyo", i), strnstr(str, "tokyo", i));
-	// 	ASSERT_EQ_PTR(ft_strnstr(str, "libft~", i), strnstr(str, "libft~", i));
-	// 	ASSERT_EQ_PTR(ft_strnstr(str, "z", i), strnstr(str, "z", i));
-	// }
-    // /* 113 */ ASSERT_EQ_PTR(ft_strnstr("", "hello", 5), strnstr("", "hello", 5));
-    // /* 114 */ ASSERT_EQ_PTR(ft_strnstr("", "", 0), strnstr("", "", 0));
-    // /* 115 */ ASSERT_EQ_PTR(ft_strnstr(NULL, "1", 0), strnstr(NULL, "1", 0));
     // Segmentation Fault
-    // /* 116 */ ASSERT_EQ_PTR(ft_strnstr(NULL, "fake", 3), strnstr(NULL, "fake", 3));
-    // /* 116 */ ASSERT_EQ_PTR(ft_strnstr(NULL, "1", 1), ft_strnstr(NULL, "1", 1));
 	// printf("ft_strnstr[13]:  %s\n", ft_strnstr(NULL, "fake", 3));//segmentation fault
 	// printf("ft_strnstr[13]:  %s\n", ft_strnstr("fake", NULL, 3));
 	// printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault

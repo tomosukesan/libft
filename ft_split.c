@@ -6,20 +6,16 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:15:19 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/22 19:36:18 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/23 16:14:06 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// static
-int		count_str(char const *s, char c);
-// static
-int		all_split_c(char const *s, char c);
-// static
-char	*get_word(char const *s, char c, int i, char *result);
-// static
-char	*put_tail(char **head, char c, int i);
+static int	count_str(char const *s, char c);
+static int	all_split_c(char const *s, char c);
+static char	*get_word(char const *s, char c, int i, char *result);
+static char	*put_tail(char **head, char c, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -50,9 +46,8 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-int	count_str(char const *s, char c)
+static int	count_str(char const *s, char c)
 {
-// static
 	int		str_num;
 	char	*mov_p;
 
@@ -72,9 +67,8 @@ int	count_str(char const *s, char c)
 	return (str_num);
 }
 
-int	all_split_c(char const *s, char c)
+static int	all_split_c(char const *s, char c)
 {
-// static
 	size_t	i;
 	size_t	count;
 	size_t	s_len;
@@ -91,9 +85,8 @@ int	all_split_c(char const *s, char c)
 	return ((int)(s_len - count));
 }
 
-char	*get_word(char const *s, char c, int i, char *result)
+static char	*get_word(char const *s, char c, int i, char *result)
 {
-// static
 	char	*head;
 	char	*tail;
 
@@ -113,9 +106,8 @@ char	*get_word(char const *s, char c, int i, char *result)
 	return (result);
 }
 
-char	*put_tail(char **head, char c, int i)
+static char	*put_tail(char **head, char c, int i)
 {
-// static
 	int		str_num;
 	char	*tail;
 

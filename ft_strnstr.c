@@ -6,37 +6,45 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 08:58:10 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/21 21:16:45 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/23 16:13:06 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
+static char	*search_str(const char *haystack, const char *needle, size_t len);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	count;
-	size_t	haystack_len;
-	size_t	needle_len;
-	size_t	i;
-
 	if (len == 0 && haystack == NULL)
 		return (NULL);
 	if (needle[0] == '\0')
 		return ((char *)haystack);
-	count = 0;
+	return (search_str(haystack, needle, len));
+}
+
+static char	*search_str(const char *haystack, const char *needle, size_t len)
+{
+	size_t	haystack_len;
+	size_t	needle_len;
+	size_t	i;
+	size_t	j;
+
 	haystack_len = ft_strlen(haystack);
 	needle_len = ft_strlen(needle);
-	while (count < haystack_len && count < len)
+	i = 0;
+	if (haystack_len < needle_len || len < needle_len)
+		return (NULL);
+	while (i < haystack_len - needle_len + 1 && i < len)
 	{
-		i = 0;
-		while (haystack[count + i] == needle[i])
+		j = 0;
+		while (haystack[i + j] == needle[j])
 		{
-			i++;
-			if (i == needle_len && count + i <= len)
-				return ((char *)&haystack[count]);
+			j++;
+			if (j == needle_len && i + j <= len)
+				return ((char *)&haystack[i]);
 		}
-		count++;
+		i++;
 	}
 	return (NULL);
 }

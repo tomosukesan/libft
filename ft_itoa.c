@@ -6,14 +6,13 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:51:05 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/21 19:14:20 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/23 16:11:18 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// static
-char	*conv_to_text(int minus_flag, int digit, long long tmp, char *result);
+static char	*conv_to_text(int flag, int digit, long long tmp, char *result);
 
 char	*ft_itoa(int n)
 {
@@ -41,22 +40,21 @@ char	*ft_itoa(int n)
 	return (conv_to_text(minus_flag, digit, tmp, result));
 }
 
-char	*conv_to_text(int minus_flag, int digit, long long tmp, char *result)
+static char	*conv_to_text(int flag, int digit, long long tmp, char *result)
 {
-// static : prototypeも
-	result[digit + minus_flag] = '\0';
+	result[digit + flag] = '\0';
 	if (tmp < 10)
-		result[digit + minus_flag - 1] = tmp + '0';
+		result[digit + flag - 1] = tmp + '0';
 	else
 	{
-		while (minus_flag <= digit)
+		while (flag <= digit)
 		{
-			result[digit + minus_flag - 1] = tmp % 10 + '0';
+			result[digit + flag - 1] = tmp % 10 + '0';
 			tmp /= 10;
 			digit--;
 		}
 	}
-	if (minus_flag)
+	if (flag)
 		result[0] = '-';
 	return (result);
 }

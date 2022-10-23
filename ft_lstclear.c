@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 22:37:30 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/20 23:26:10 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/23 14:01:06 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if (lst == NULL)
 		return ;
-	while (*lst)
+	while (*lst != NULL)
 	{
 		tmp = (*lst)->next;
 		ft_lstdelone(*lst, del);

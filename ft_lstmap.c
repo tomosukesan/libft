@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:57:10 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/22 22:35:37 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/23 14:04:53 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*node;
 	void	*new_content;
 
-	// new_lst = malloc(sizeof(t_list));
-	// if (new_lst == NULL)
-	// 	return (NULL);
-	// printf("", sizeof(t_list));
 	new_lst = NULL;
 	while (lst != NULL)
 	{
