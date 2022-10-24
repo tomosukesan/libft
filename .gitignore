@@ -1,12 +1,12 @@
-# .gitignore
+.gitignore
 .vscode/
 .DS_Store
-# test.c
+test.c
 *.o
 a.out
 libft.a
-# tester/
-# tmp/
+tester/
+tmp/
 libft-unit-test/
 libftTester/
 libft-tester-tokyo/
