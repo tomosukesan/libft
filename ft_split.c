@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:15:19 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/23 16:14:06 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/24 21:16:59 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ char	**ft_split(char const *s, char c)
 		result[i] = get_word(s, c, i, result[i]);
 		if (i != 0 && result[i] == NULL)
 		{
-			i++;
-			while ((--i) >= 0)
-				free(result[i]);
+			while (i >= 0)
+				free(result[i--]);
+			free(result);
 			return (NULL);
 		}
 		i++;

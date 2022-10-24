@@ -1,13 +1,13 @@
-#ifndef _LIBFT_H_
-# define _LIBFT_H_
+#ifndef LIBFT_H
+# define LIBFT_H
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <stdio.h>
-#include <unistd.h>
+# include <stddef.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <stdio.h>
+# include <unistd.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -52,7 +52,7 @@ char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t destsize);
-size_t	ft_strlcat(char * dest, const char * src, size_t dstsize);
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
