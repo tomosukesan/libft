@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:25:11 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/20 15:25:54 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 14:02:28 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	count = 0;
 	uc_dest = (unsigned char *)dest;
-	uc_src = (unsigned char *)src;
+	uc_src = (const unsigned char *)src;
 	if (src > dest)
 	{
 		while (count < n)

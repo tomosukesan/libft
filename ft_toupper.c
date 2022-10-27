@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:32:07 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/08 18:40:55 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 07:12:17 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	if (c >= 97 && c <= 122)
-		c = c - 32;
+	if (c >= 'a' && c <= 'z')
+		c -='a' - 'A';
 	return (c);
 }

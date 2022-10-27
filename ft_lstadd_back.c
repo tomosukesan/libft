@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 22:38:18 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/21 19:56:58 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 08:17:29 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
+	t_list	*tail;
 
 	if (lst == NULL || new == NULL)
 		return ;
@@ -22,7 +22,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 	else
 	{
-		tmp = ft_lstlast(*lst);
-		tmp->next = new;
+		tail = ft_lstlast(*lst);
+		tail->next = new;
 	}
 }

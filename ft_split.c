@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:15:19 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/24 21:16:59 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 14:35:17 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ static char	*put_tail(char **head, char c, int i)
 	char	*tail;
 
 	str_num = -1;
-	while (*head && (str_num++) <= i)
+	//while (*head && str_num++ <= i)
+	while (*head && (++str_num) <= i)
 	{
 		tail = ft_strchr((const char *)*head, (int)c);
 		if (tail != NULL && str_num == i)
