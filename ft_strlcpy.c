@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:48:35 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/21 21:04:34 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 15:04:40 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 
 	count = 0;
 	uc_dest = (unsigned char *)dest;
-	uc_src = (unsigned char *)src;
+	uc_src = (const unsigned char *)src;
 	if (destsize == 0)
 		return (ft_strlen(src));
 	while (count < destsize - 1)

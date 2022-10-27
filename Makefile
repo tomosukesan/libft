@@ -56,7 +56,7 @@ $(NAME): $(OBJS)
 	ar r $(NAME) $(OBJS)
 
 bonus:
-	make WITH_BONUS=1
+	@make WITH_BONUS=1
 clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
 fclean: clean

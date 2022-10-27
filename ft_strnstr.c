@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 08:58:10 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/23 16:13:06 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 17:26:09 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char	*search_str(const char *haystack, const char *needle, size_t len);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (len == 0 && haystack == NULL)
+	if ((len == 0 && haystack == NULL) && needle != NULL)
 		return (NULL);
 	if (needle[0] == '\0')
 		return ((char *)haystack);

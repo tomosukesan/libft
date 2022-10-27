@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:51:05 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/23 16:11:18 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:11:04 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	*ft_itoa(int n)
 
 static char	*conv_to_text(int flag, int digit, long long tmp, char *result)
 {
+	if (flag)
+		result[0] = '-';
 	result[digit + flag] = '\0';
 	if (tmp < 10)
 		result[digit + flag - 1] = tmp + '0';
@@ -54,7 +56,5 @@ static char	*conv_to_text(int flag, int digit, long long tmp, char *result)
 			digit--;
 		}
 	}
-	if (flag)
-		result[0] = '-';
 	return (result);
 }

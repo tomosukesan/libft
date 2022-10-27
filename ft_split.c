@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:15:19 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 14:35:17 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:30:14 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_str(char const *s, char c);
-static int	all_split_c(char const *s, char c);
-static char	*get_word(char const *s, char c, int i, char *result);
-static char	*put_tail(char **head, char c, int i);
+static size_t	count_str(char const *s, char c);
+static size_t	all_split_c(char const *s, char c);
+static char		*get_word(char const *s, char c, size_t i, char *result);
+static char		*put_tail(char **head, char c, size_t i);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	int		i;
-	int		str_num;
+	size_t	i;
+	size_t	str_num;
 
 	i = 0;
 	str_num = count_str(s, c);
 	if (str_num == 1 && all_split_c(s, c) == 0)
 		str_num--;
-	result = malloc(sizeof(char *) * str_num + 1);
+	result = malloc(sizeof(char *) * (str_num + 1));
 	if (result == NULL)
 		return (NULL);
 	while (i < str_num)
@@ -46,14 +46,12 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-static int	count_str(char const *s, char c)
+static size_t	count_str(char const *s, char c)
 {
-	int		str_num;
+	size_t	str_num;
 	char	*mov_p;
 
 	str_num = 0;
-	if ((s != NULL && s[0] != '\0') && s[0] == c)
-		str_num--;
 	mov_p = (char *)s;
 	while (mov_p != NULL && *(mov_p) != '\0')
 	{
@@ -64,10 +62,12 @@ static int	count_str(char const *s, char c)
 			mov_p++;
 		str_num++;
 	}
+	if (s != NULL && (s[0] != '\0' && s[0] == c))
+		str_num--;
 	return (str_num);
 }
 
-static int	all_split_c(char const *s, char c)
+static size_t	all_split_c(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -82,10 +82,10 @@ static int	all_split_c(char const *s, char c)
 			count++;
 		i++;
 	}
-	return ((int)(s_len - count));
+	return (s_len - count);
 }
 
-static char	*get_word(char const *s, char c, int i, char *result)
+static char	*get_word(char const *s, char c, size_t i, char *result)
 {
 	char	*head;
 	char	*tail;
@@ -106,14 +106,13 @@ static char	*get_word(char const *s, char c, int i, char *result)
 	return (result);
 }
 
-static char	*put_tail(char **head, char c, int i)
+static char	*put_tail(char **head, char c, size_t i)
 {
-	int		str_num;
+	size_t	str_num;
 	char	*tail;
 
-	str_num = -1;
-	//while (*head && str_num++ <= i)
-	while (*head && (++str_num) <= i)
+	str_num = 0;
+	while (*head != '\0' && str_num <= i)
 	{
 		tail = ft_strchr((const char *)*head, (int)c);
 		if (tail != NULL && str_num == i)
@@ -125,6 +124,7 @@ static char	*put_tail(char **head, char c, int i)
 			tail++;
 			*head = tail;
 		}
+		str_num++;
 	}
 	return (tail);
 }

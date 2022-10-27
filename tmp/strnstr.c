@@ -10,6 +10,7 @@ int	main(void)
 		printf("%s\n",strnstr(str, "libft-test-tokyo", i));
 	}
 	printf("%s\n",strnstr(str, "libft-test-tokyo", 18));
+	// printf("ft_strnstr:  %s\n", strnstr(NULL, NULL, 0));//segmentation fault
 	// printf("strnstr[1]:  %s\n", strnstr("42tokyo", "kyo", 7));
 	// printf("strnstr[2]:  %s\n", strnstr("42tokyo", "kyo", 20));
 	// printf("strnstr[3]:  %s\n", strnstr("42tokyo", "kyo", 3));
@@ -25,7 +26,6 @@ int	main(void)
 	// printf("strnstr[11]: %s\n", strnstr("aaabcabcd", "cd", 8));		// null
 	// printf("strnstr[12]: %s\n", strnstr("aaabcabcd", "aaabc", 5));	// aaabcabcd
 	// printf("strnstr[13]: %s\n", strnstr("fake", NULL, 3));	// segmentation fault
-	// printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault
 	// printf("ft_strnstr: %s\n", ft_strnstr("42tokyo", NULL, 5));//segmentation
 	return (0);
 }

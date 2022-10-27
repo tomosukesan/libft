@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 09:37:18 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 13:20:02 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:31:10 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		head++;
 	if (*head == '\0')
 	{
-		//result = malloc(sizeof(char));
-		//if (result == NULL)
-		//	return (NULL);
-		//result[0] = '\0';
 		result = ft_calloc(1, sizeof(char));
 		return (result);
 	}

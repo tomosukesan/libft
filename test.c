@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/23 12:30:15 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 17:23:52 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,9 +225,9 @@ void	test_ft_strnstr(void)
 	printf("ft_strnstr[11]:  %s\n", ft_strnstr("aaabcabcd", "cd", 8));	// null
 	printf("ft_strnstr[12]:  %s\n", ft_strnstr("aaabcabcd", "aaabc", 5));
     // Segmentation Fault
+	printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault
 	// printf("ft_strnstr[13]:  %s\n", ft_strnstr(NULL, "fake", 3));//segmentation fault
 	// printf("ft_strnstr[13]:  %s\n", ft_strnstr("fake", NULL, 3));
-	// printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault
 	// printf("ft_strnstr: %s\n", ft_strnstr("42tokyo", NULL, 5));//segmentation fault
 	puts("===============");
 }

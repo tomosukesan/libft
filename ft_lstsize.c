@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 21:51:07 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/23 13:51:50 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:11:41 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	lstsize;
+	size_t	lstsize;
 
 	if (lst == NULL)
 		return (0);
