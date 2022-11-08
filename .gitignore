@@ -5,6 +5,7 @@ test.c
 *.o
 a.out
 libft.a
+libft.h.gch
 tester/
 tmp/
 libft-unit-test/

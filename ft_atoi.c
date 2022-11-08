@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:12:24 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 18:32:58 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/07 19:50:14 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,28 @@ static int	ft_isspace(const char *str);
 
 int	ft_atoi(const char *str)
 {
-	size_t		chr_num;
+	size_t		index;
 	int			flag;
 	long long	result;
 
-	chr_num = ft_isspace(str);
+	index = ft_isspace(str);
 	flag = 1;
 	result = 0;
-	if (str[chr_num] == '+' || str[chr_num] == '-')
+	if (str[index] == '+' || str[index] == '-')
 	{
-		flag = ',' - str[chr_num];
-		chr_num++;
+		flag = ',' - str[index];
+		index++;
 	}
-	while (ft_isdigit(str[chr_num]))
+	while (ft_isdigit(str[index]))
 	{
-		if (result > (LLONG_MAX - (str[chr_num] - '0')) / 10)
+		if (result > (LLONG_MAX - (str[index] - '0')) / 10)
 		{
 			if (flag == -1)
 				return ((int)(LLONG_MIN));
 			return ((int)(LLONG_MAX));
 		}
-		result = result * 10 + (str[chr_num] - '0');
-		chr_num++;
+		result = result * 10 + (str[index] - '0');
+		index++;
 	}
 	return ((int)(result * flag));
 }

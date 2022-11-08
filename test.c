@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 06:23:54 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 17:23:52 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/08 22:25:44 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,9 +223,9 @@ void	test_ft_strnstr(void)
 	printf("ft_strnstr[9]:  %s\n", ft_strnstr(NULL, "is", 0));
 	printf("ft_strnstr[10]: %s\n", ft_strnstr(NULL, "", 0));
 	printf("ft_strnstr[11]:  %s\n", ft_strnstr("aaabcabcd", "cd", 8));	// null
-	printf("ft_strnstr[12]:  %s\n", ft_strnstr("aaabcabcd", "aaabc", 5));
+	//printf("ft_strnstr[12]:  %s\n", ft_strnstr("aaabcabcd", "aaabc", 5));
     // Segmentation Fault
-	printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault
+	//printf("ft_strnstr:  %s\n", ft_strnstr(NULL, NULL, 0));//segmentation fault
 	// printf("ft_strnstr[13]:  %s\n", ft_strnstr(NULL, "fake", 3));//segmentation fault
 	// printf("ft_strnstr[13]:  %s\n", ft_strnstr("fake", NULL, 3));
 	// printf("ft_strnstr: %s\n", ft_strnstr("42tokyo", NULL, 5));//segmentation fault
@@ -402,6 +402,10 @@ void	test_ft_putstr_putnbr_fd(void)
 void	test_ft_split(void)
 {
 	puts("\n===ft_split====");
+	free(ft_split("\0aa\0bbb", '\0'));
+	puts(" * * * * *");
+	free(ft_split("       ", ' '));
+	puts(" * * * * *");
 	free(ft_split("42tokyo", 'o'));
 	puts(" * * * * *");
 	free(ft_split("abahause", 'a'));
