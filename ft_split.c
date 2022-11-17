@@ -6,16 +6,15 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:15:19 by ttachi            #+#    #+#             */
-/*   Updated: 2022/11/08 22:46:55 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/17 14:15:18 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	count_str(char const *s, char c);
 static char		*get_word(char const *s, char c, size_t str_num);
-static char		*put_tail(char **head, char c, size_t str_num);
+static char		*set_tail(char **head, char c, size_t str_num);
 
 char	**ft_split(char const *s, char c)
 {
@@ -31,10 +30,11 @@ char	**ft_split(char const *s, char c)
 	while (i < str_num)
 	{
 		result[i] = get_word(s, c, i);
-		if (i != 0 && result[i] == NULL)
+		if (result[i] == NULL)
 		{
-			while (i >= 0)
+			while (i > 0)
 				free(result[i--]);
+			free(result[0]);
 			free(result);
 			return (NULL);
 		}
@@ -49,20 +49,18 @@ static size_t	count_str(char const *s, char c)
 	size_t	str_num;
 
 	str_num = 0;
-	if (s == NULL)
+	if (s == NULL || s[0] == '\0')
 		return (0);
 	if (c == '\0')
 		return (1);
 	while (*s == c)
 		s++;
-	//if (*s == '\0')
-	//	return (1);
 	while (*s != '\0')
 	{
 		str_num++;
-		s = ft_strchr((const char *)s, (int)c);
+		s = ft_strchr(s, (int)c);
 		if (s == NULL)
-			break;
+			break ;
 		while (*(s + 1) == c)
 			s++;
 		if (*s != '\0')
@@ -77,22 +75,22 @@ static char	*get_word(char const *s, char c, size_t str_num)
 	char	*tail;
 	char	*result;
 
-	if (s == NULL)
+	if (s == NULL || s[0] == '\0')
 		return (NULL);
 	if (c == '\0')
-		return ((char *)s);
+		return (ft_strdup(s));
 	head = (char *)s;
 	while (*head == c)
 		head++;
-	tail = put_tail(&head, c, str_num);
+	tail = set_tail(&head, c, str_num);
 	result = malloc(sizeof(char) * (tail - head + 1));
 	if (result == NULL)
 		return (NULL);
-	ft_strlcpy(result, (const char *)head, (tail - head + 1));
+	ft_strlcpy(result, head, tail - head + 1);
 	return (result);
 }
 
-static char	*put_tail(char **head, char c, size_t str_num)
+static char	*set_tail(char **head, char c, size_t str_num)
 {
 	size_t	i;
 	char	*tail;
@@ -102,7 +100,7 @@ static char	*put_tail(char **head, char c, size_t str_num)
 	while (i <= str_num)
 	{
 		tail = ft_strchr((const char *)*head, (int)c);
-		if (tail == NULL || c == '\0')
+		if (tail == NULL)
 			return (ft_strchr((const char *)*head, '\0'));
 		if (i == str_num)
 			break ;

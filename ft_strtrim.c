@@ -3,44 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 09:37:18 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 18:31:10 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/17 19:20:41 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*move_tail(char *head, char const *set);
+static char	*set_tail(char *head, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	result_len;
 	char	*head;
 	char	*tail;
 	char	*result;
+	size_t	result_len;
 
-	if (s1 == NULL)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
 	head = (char *)s1;
-	while (*head != '\0' && ft_strchr(set, (int)(*head)) != NULL)
+	while (ft_strchr(set, (int)(*head)) != NULL && *head != '\0')
 		head++;
 	if (*head == '\0')
-	{
-		result = ft_calloc(1, sizeof(char));
-		return (result);
-	}
-	tail = move_tail(head, set);
-	result_len = tail - head + 1;
-	result = malloc(sizeof(char) * result_len);
+		return (ft_calloc(1, sizeof(char)));
+	tail = set_tail(head, set);
+	result_len = tail - head;
+	result = malloc(sizeof(char) * (result_len + 1));
 	if (result == NULL)
 		return (NULL);
-	ft_strlcpy(result, head, result_len);
+	ft_strlcpy(result, head, result_len + 1);
 	return (result);
 }
 
-static char	*move_tail(char *head, char const *set)
+static char	*set_tail(char *head, char const *set)
 {
 	char	*tail;
 

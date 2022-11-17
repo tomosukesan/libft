@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:53:12 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/26 18:47:39 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/17 16:44:08 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t	num;
+	size_t	len;
 
-	num = 0;
-	while (str[num] != '\0')
-		num++;
-	return (num);
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }

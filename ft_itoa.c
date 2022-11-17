@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:51:05 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 18:11:04 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/16 21:21:51 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*conv_to_text(int flag, int digit, long long tmp, char *result);
+static char	*conv_to_text(int minus_flag, int digit, long long tmp);
 
 char	*ft_itoa(int n)
 {
 	int			minus_flag;
 	int			digit;
 	long long	tmp;
-	char		*result;
 
 	minus_flag = 0;
 	digit = 1;
@@ -34,24 +33,26 @@ char	*ft_itoa(int n)
 		digit++;
 		n /= 10;
 	}
+	return (conv_to_text(minus_flag, digit, tmp));
+}
+
+static char	*conv_to_text(int minus_flag, int digit, long long tmp)
+{
+	char	*result;
+
 	result = malloc(sizeof(char) * (digit + minus_flag + 1));
 	if (result == NULL)
 		return (NULL);
-	return (conv_to_text(minus_flag, digit, tmp, result));
-}
-
-static char	*conv_to_text(int flag, int digit, long long tmp, char *result)
-{
-	if (flag)
+	if (minus_flag)
 		result[0] = '-';
-	result[digit + flag] = '\0';
+	result[digit + minus_flag] = '\0';
 	if (tmp < 10)
-		result[digit + flag - 1] = tmp + '0';
+		result[minus_flag] = tmp + '0';
 	else
 	{
-		while (flag <= digit)
+		while (minus_flag <= digit)
 		{
-			result[digit + flag - 1] = tmp % 10 + '0';
+			result[digit + minus_flag - 1] = tmp % 10 + '0';
 			tmp /= 10;
 			digit--;
 		}

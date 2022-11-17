@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 08:32:32 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 14:10:15 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/15 20:49:21 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*uc_s1;
-	unsigned char	*uc_s2;
+	const unsigned char	*uc_s1;
+	const unsigned char	*uc_s2;
 
 	uc_s1 = (unsigned char *)s1;
 	uc_s2 = (unsigned char *)s2;

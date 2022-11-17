@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:11:04 by ttachi            #+#    #+#             */
-/*   Updated: 2022/11/07 20:18:11 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/14 22:08:18 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t				count;
-	unsigned char		uc_c;
 	const unsigned char	*uc_s;
 
-	count = 0;
-	uc_c = (unsigned char)c;
 	uc_s = (const unsigned char *)s;
-	while (count < n)
+	while (n--)
 	{
-		if (uc_s[count] == uc_c)
-			return ((void *)&s[count]);
-		count++;
+		if (uc_s[0] == (unsigned char)c)
+			return ((void *)uc_s);
+		uc_s++;
 	}
 	return (NULL);
 }

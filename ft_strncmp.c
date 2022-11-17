@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:36:25 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 18:16:44 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/17 17:34:24 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	count = 0;
 	eos_flag = 0;
-	while (count < n && !(eos_flag))
+	while (count < n && eos_flag == 0)
 	{
 		if (s1[count] == '\0' || s2[count] == '\0')
 			eos_flag++;
