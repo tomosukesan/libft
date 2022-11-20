@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 15:37:10 by ttachi            #+#    #+#             */
-/*   Updated: 2022/11/17 14:27:12 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/20 09:21:11 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
-	size_t			s_len;
 
 	if (s == NULL || f == NULL)
 		return ;
 	i = 0;
-	s_len = ft_strlen(s);
-	while (s_len--)
+	while (s[i] != '\0')
 	{
 		f(i, &s[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 23:04:35 by ttachi            #+#    #+#             */
-/*   Updated: 2022/11/17 17:27:36 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/20 09:22:06 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	result = malloc(sizeof(char) * (s_len + 1));
 	if (result == NULL)
 		return (NULL);
-	while (s_len--)
+	while (s[i] != '\0')
 	{
 		result[i] = f(i, s[i]);
 		i++;

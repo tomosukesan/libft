@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   strlcat.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:20:38 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/20 17:58:44 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/19 21:43:50 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	main(void)
 
 	printf("strlcat前: %s\n", dest);
 	strlcat("cdefghi", "ab", 10);
-	// strlcat(dest, src, 20);	// result: Success
-	// strlcat(dest, src, 10);		// result: Halfway
-	// strlcat(NULL, src, 20); // expect: segmentation fault
+	 strlcat(dest, src, 20);	// result: Success
+	 strlcat(dest, src, 10);		// result: Halfway
+	 strlcat(NULL, src, 20); // expect: segmentation fault
 	// strlcat(dest, NULL, 20); // expect: segmentation fault
 	// strlcat(dest, src, 0); // expect: goldと出力
 	// strlcat(NULL, NULL, 20); // expect: segmentation fault

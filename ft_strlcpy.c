@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:48:35 by ttachi            #+#    #+#             */
-/*   Updated: 2022/11/17 16:33:04 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/20 09:48:19 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
-	size_t				count;
+	size_t	count;
 
 	count = 0;
 	if (destsize == 0)

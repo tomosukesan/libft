@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttachi <ttachi@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:43:42 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/27 17:27:04 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/20 09:26:09 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	return (c >= ' ' && c <= '~');
+	return (' ' <= c && c <= '~');
 }

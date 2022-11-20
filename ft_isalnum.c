@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:27:46 by ttachi            #+#    #+#             */
-/*   Updated: 2022/10/06 20:46:54 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/20 09:25:24 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return (ft_isalpha(c) != 0 || ft_isdigit(c) != 0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

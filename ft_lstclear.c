@@ -6,7 +6,7 @@
 /*   By: ttachi <ttachi@student.42tokyo.ja>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 22:37:30 by ttachi            #+#    #+#             */
-/*   Updated: 2022/11/17 19:33:44 by ttachi           ###   ########.fr       */
+/*   Updated: 2022/11/20 11:19:36 by ttachi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*tmp;
+	t_list	*next_node;
 
 	if (lst == NULL || del == NULL)
 		return ;
 	while (*lst != NULL)
 	{
-		tmp = (*lst)->next;
+		next_node = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		*lst = next_node;
 	}
 }
